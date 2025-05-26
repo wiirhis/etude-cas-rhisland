@@ -43,5 +43,5 @@ while [ $reponse == O ]; do
    echo "### Listes des rapports ###"
    ls -l "$dossier"
  done
- 
+ exit 1
 done
