@@ -41,7 +41,7 @@ while [ $reponse == O ]; do
 
  for fichier in "$dossier"; do
    echo "### Listes des rapports ###"
-   ls -l "$dossier" | cut -d'' -f8
+   ls -l "$dossier" | awk '{print $9}'
  done
  exit 1
 done
