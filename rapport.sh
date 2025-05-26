@@ -4,6 +4,8 @@ set -e           # Stop le script si une commande échoue
 set -u           # Stop si une variable non initialisée est utilisée
 set -o pipefail  # Stop si une commande dans un pipeline échoue
 
+dossier="./rapports"
+
 echo "Voulez-vous créer un rapport ? (O/N)"
 read reponse
 while [ $reponse == O ]; do
@@ -37,9 +39,9 @@ while [ $reponse == O ]; do
  git add .
  git commit -m "Création du rapport "$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt"
 
- for $fichier in "./rapports"; do
- echo "### Listes des rapports ###"
- ls -l "./rapports"
+ for fichier in "$dossier"/*; do
+   echo "### Listes des rapports ###"
+   ls -l "$dossier"
  done
  exit 1
 done
