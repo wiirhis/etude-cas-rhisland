@@ -4,33 +4,36 @@ set -e           # Stop le script si une commande échoue
 set -u           # Stop si une variable non initialisée est utilisée
 set -o pipefail  # Stop si une commande dans un pipeline échoue
 
+echo "Voulez-vous créer un rapport ? (O/N)"
+read reponse
+while [ $reponse == O ]; do
+ echo "Veuillez saisir votre prénom :"
+ read prenom_user 
 
-echo "Veuillez saisir votre prénom :"
-read prenom_user 
+ if [[ -z "$prenom_user" ]] then
+ echo "Vouz devez saisir votre prénom"
+ exit 1
+ fi
 
-if [[ -z "$prenom_user" ]] then
-echo "Vouz devez saisir votre prénom"
-exit 1
-fi
+ echo "Quel est votre nom ? :"
+ read nom_user
 
-echo "Quel est votre nom ? :"
-read nom_user
+ if [[ -z "$nom_user" ]] then
+ echo "Vouz devez saisir votre nom"
+ exit 1
+ fi
 
-if [[ -z "$nom_user" ]] then
-echo "Veuillez saisir votre nom"
-exit 1
-fi
+ echo "Quel est le titre du rapport ? :"
+ read titre_rapport
 
-echo "Quel est le titre du rapport ? :"
-read titre_rapport
+ if [[ -z "$titre_rapport" ]] then
+ echo "Vouz devez saisir le titre du rapport"
+ exit 1
+ fi
 
-if [[ -z "$titre_rapport" ]] then
-echo "Vouz devez saisir le titre du rapport"
-exit 1
-fi
-
-mkdir . -p rapports
-touch ./rapports/"$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt
-echo "$(date) : ./rapports/"$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt" >> actions.log
-git add .
-git commit -m "Création du rapport "$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt"
+ mkdir . -p rapports
+ touch ./rapports/"$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt
+ echo "$(date) : ./rapports/"$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt" >> actions.log
+ git add .
+ git commit -m "Création du rapport "$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt"
+done
