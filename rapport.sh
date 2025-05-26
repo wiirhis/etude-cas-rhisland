@@ -46,7 +46,7 @@ while [ $reponse == O ]; do
  echo "### Liste des rapports créés ###" >> resume.log
  ls -l "$dossier" | awk '{print $9}' >> resume.log
  echo "### Nombre total de fichiers .txt" >> resume.log
- ls -l "$dossier"/.*txt 2>/dev/null | wc -l >> resume.log
+ ls -l "$dossier"/*.txt 2>/dev/null | wc -l >> resume.log
  echo "### La date du dernier commit Git ###" >> resume.log
  git log -1 >> resume.log
  echo "### Utilisateur actuel et heure système ###" >> resume.log
