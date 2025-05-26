@@ -38,10 +38,9 @@ while [ $reponse == O ]; do
  echo "$(date) : ./rapports/"$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt" >> actions.log
  git add .
  git commit -m "Création du rapport "$prenom_user"_"$nom_user"_"$titre_rapport"_$(date +%Y-%m-%d-%H-%M).txt"
-
- for fichier in "$dossier"/*; do
+ exit 1
+done
+for fichier in "$dossier"/*; do
    echo "### Listes des rapports ###"
    ls -l "$dossier"
  done
- exit 1
-done
