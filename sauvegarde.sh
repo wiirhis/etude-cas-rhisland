@@ -12,7 +12,7 @@ for fichier in "$DOSSIER"/*; do
      break
          elif [[ "$fichier" == *.txt ]]; then
            mkdir -p ./sauvegardes
-           timestamp=$(date)
+           timestamp=$(date +%Y-%m-%d-%H-%M)
            cp -p "$fichier" ./sauvegardes/"$(basename $fichier)_sauve_${timestamp}.txt"
           echo "sauvegardes/$(basename $fichier)_sauve_${timestamp}.txt" >> sauvegarde.log
          else

@@ -12,7 +12,7 @@ while [ $reponse == O ]; do
  echo "Veuillez saisir votre prénom :"
  read prenom_user 
 
- if [[ -z "$prenom_user" ]] then
+ if [[ -z "$prenom_user" ]]; then
  echo "Vouz devez saisir votre prénom"
  exit 1
  fi
@@ -20,7 +20,7 @@ while [ $reponse == O ]; do
  echo "Quel est votre nom ? :"
  read nom_user
 
- if [[ -z "$nom_user" ]] then
+ if [[ -z "$nom_user" ]]; then
  echo "Vouz devez saisir votre nom"
  exit 1
  fi
@@ -28,7 +28,7 @@ while [ $reponse == O ]; do
  echo "Quel est le titre du rapport ? :"
  read titre_rapport
 
- if [[ -z "$titre_rapport" ]] then
+ if [[ -z "$titre_rapport" ]]; then
  echo "Vouz devez saisir le titre du rapport"
  exit 1
  fi
